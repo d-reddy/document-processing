@@ -1,0 +1,4 @@
+com\reddy\indexer\application\InjectorProvider.class
+com\reddy\indexer\application\IndexerApplication.class
+com\reddy\indexer\application\resources\IndexerResource.class
+com\reddy\indexer\application\IndexerConfiguration.class

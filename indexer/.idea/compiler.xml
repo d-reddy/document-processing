@@ -17,19 +17,34 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile default="false" name="Annotation profile for indexer-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="indexer-core" />
+      </profile>
+      <profile default="false" name="Annotation profile for indexer-api" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="indexer-api" />
-        <module name="indexer-core" />
+      </profile>
+      <profile default="false" name="Annotation profile for indexer-appication" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="indexer-appication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="indexer" target="1.5" />
-      <module name="indexer-api" target="1.5" />
-      <module name="indexer-core" target="1.5" />
+      <module name="indexer" target="1.8" />
+      <module name="indexer-api" target="1.8" />
+      <module name="indexer-appication" target="1.8" />
+      <module name="indexer-application" target="1.8" />
+      <module name="indexer-core" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
