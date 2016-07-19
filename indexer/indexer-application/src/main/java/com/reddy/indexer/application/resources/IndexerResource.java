@@ -1,6 +1,7 @@
 package com.reddy.indexer.application.resources;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.reddy.indexer.application.IndexerConfiguration;
 import com.reddy.indexer.core.IRequestProcessor;
 
@@ -16,12 +17,12 @@ import javax.ws.rs.core.Response;
 public class IndexerResource {
 
     private IRequestProcessor processor;
-    private IndexerConfiguration configuration;
+    private String sourceDir;
 
     @Inject
-    public IndexerResource(IRequestProcessor processor, IndexerConfiguration configuration) {
+    public IndexerResource(IRequestProcessor processor, @Named("sourceDir") String sourceDir) {
         this.processor = processor;
-        this.configuration = configuration;
+        this.sourceDir = sourceDir;
     }
 
     @GET
@@ -35,7 +36,7 @@ public class IndexerResource {
     @Path("/add")
     public Response add(@QueryParam("userName") String userName) {
 
-        this.processor.index(configuration.getSourceDir());
+        this.processor.index(sourceDir);
         return Response.ok().build();
     }
 

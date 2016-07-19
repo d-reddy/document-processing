@@ -18,13 +18,15 @@ public class IndexerApplication extends Application<IndexerConfiguration> {
 
     @Override
     public void initialize(Bootstrap<IndexerConfiguration> bootstrap) {
-        // nothing to do yet
-        InjectorProvider.setInjector(Guice.createInjector(new CoreModule()));
     }
 
     @Override
     public void run(IndexerConfiguration configuration,
                     Environment environment) {
+
+        // nothing to do yet
+        InjectorProvider.setInjector(Guice.createInjector(new CoreModule(), new ConfigurationModule(configuration)));
+
         // nothing to do yet
         environment.jersey().register(InjectorProvider.getInjector().getInstance(IndexerResource.class));
     }

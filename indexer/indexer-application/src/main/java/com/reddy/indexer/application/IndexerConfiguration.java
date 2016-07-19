@@ -1,6 +1,7 @@
 package com.reddy.indexer.application;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.inject.Singleton;
 import io.dropwizard.Configuration;
 
 /**

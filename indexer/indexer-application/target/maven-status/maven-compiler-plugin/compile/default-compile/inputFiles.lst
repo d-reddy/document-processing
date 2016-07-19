@@ -1,4 +1,5 @@
-F:\git\personal\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\InjectorProvider.java
-F:\git\personal\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\IndexerConfiguration.java
-F:\git\personal\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\resources\IndexerResource.java
-F:\git\personal\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\IndexerApplication.java
+D:\git\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\InjectorProvider.java
+D:\git\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\resources\IndexerResource.java
+D:\git\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\ConfigurationModule.java
+D:\git\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\IndexerConfiguration.java
+D:\git\document-processing\indexer\indexer-application\src\main\java\com\reddy\indexer\application\IndexerApplication.java

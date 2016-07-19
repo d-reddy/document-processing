@@ -1,0 +1,6 @@
+com\reddy\indexer\core\IRequestProcessor.class
+com\reddy\indexer\core\CoreModule.class
+com\reddy\indexer\core\imp\IndexerService.class
+com\reddy\indexer\core\models\Document.class
+com\reddy\indexer\core\IIndexerService.class
+com\reddy\indexer\core\imp\RequestProcessor.class
