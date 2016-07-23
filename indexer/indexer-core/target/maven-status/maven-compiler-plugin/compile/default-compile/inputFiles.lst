@@ -1,6 +1,6 @@
 D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\imp\RequestProcessor.java
 D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\IIndexerService.java
+D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\datacontracts\Document.java
 D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\CoreModule.java
-D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\models\Document.java
-D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\imp\IndexerService.java
+D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\imp\SolrIndexerService.java
 D:\git\document-processing\indexer\indexer-core\src\main\java\com\reddy\indexer\core\IRequestProcessor.java

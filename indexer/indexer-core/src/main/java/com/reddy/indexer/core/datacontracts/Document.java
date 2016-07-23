@@ -26,7 +26,7 @@ public class Document {
     }
 
     @JsonAnySetter
-    public void setMap(String name, Object value) {
+    public void addProperty(String name, Object value) {
         map.put(name, value);
     }
 

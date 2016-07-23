@@ -2,6 +2,7 @@ package com.reddy.indexer.core.imp;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.reddy.indexer.core.IIndexerService;
 import com.reddy.indexer.core.datacontracts.Document;
@@ -26,7 +27,8 @@ public class SolrIndexerService implements IIndexerService {
                 }
             };
 
-    public SolrIndexerService(@Named("searchHostUrl") String serverUrl, @Named("collection") String collection) {
+    @Inject
+    public SolrIndexerService(/*@Named("searchHostUrl")*/ String serverUrl, /*@Named("collection")*/ String collection) {
         this.client = new CloudSolrClient(serverUrl);
         this.collection = collection;
     }

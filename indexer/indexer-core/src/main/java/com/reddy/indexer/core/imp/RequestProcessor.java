@@ -3,6 +3,7 @@ package com.reddy.indexer.core.imp;
 import com.google.inject.Inject;
 import com.reddy.indexer.core.IIndexerService;
 import com.reddy.indexer.core.IRequestProcessor;
+import com.reddy.indexer.core.datacontracts.Document;
 import org.apache.tika.fork.ForkParser;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
@@ -12,6 +13,9 @@ import org.xml.sax.ContentHandler;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by deven on 7/10/2016.
@@ -28,6 +32,8 @@ public class RequestProcessor implements IRequestProcessor {
 
     public void index(String sourceDir) {
 
+        List<Document> documents = new ArrayList<Document>();
+
         //read files from directory
         try {
             Files.walk(Paths.get(sourceDir)).forEach(filePath -> {
@@ -38,7 +44,6 @@ public class RequestProcessor implements IRequestProcessor {
 
                     if (Files.isRegularFile(filePath)) {
                         System.out.println(filePath);
-
 
                         ContentHandler contentHandler = new BodyContentHandler(-1);
                         Metadata contentMetadata = new Metadata();
@@ -60,33 +65,42 @@ public class RequestProcessor implements IRequestProcessor {
                             System.out.println(name + ": " + contentMetadata.get(name));
                         }
 
-                        //build document to index
-//                        cacheEntry.setText(contentHandler.toString());
-//                        cacheEntry.setProcessedDate(new Date());
+                        Document doc = new Document();
+                        doc.addProperty("title",filePath.getFileName());
+                        doc.addProperty("content",contentHandler.toString());
+                        doc.addProperty("process-date",new Date());
+                        doc.addProperty("file-location",filePath);
 
-                        //for each file, get file type, author, modified date, created date, content, build solr document model
+                        documents.add(doc);
 
-                        //build a request to solr to index the document
+                        if (fsInputStream != null) {
+                            fsInputStream.close();
+                            fsInputStream = null;
+                        }
+                        if (memInputStream != null) {
+                            memInputStream.close();
+                            memInputStream = null;
+                        }
+
+                        data = null;
+
                     }
 
-                    if (fsInputStream != null) {
-                        fsInputStream.close();
-                        fsInputStream = null;
-                    }
-                    if (memInputStream != null) {
-                        memInputStream.close();
-                        memInputStream = null;
-                    }
 
-                    data = null;
-
-                }catch(Exception e){
+                }
+                catch (Exception e) {
                     //log exception
                     System.out.println(e);
                 }
 
             });
-        } catch (IOException e) {
+
+            indexerService.add(documents);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e){
             e.printStackTrace();
         }
 
